@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannabis in Georgia 🇬🇪 | CannaGeorgia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-yellow: #ffff00;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(10, 10, 10, 0.85);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Matrix Rain Canvas */
+        #matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        nav a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 0 30px var(--neon-green));
+            animation: glow-pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow-pulse {
+            from { filter: drop-shadow(0 0 20px var(--neon-green)); }
+            to { filter: drop-shadow(0 0 40px var(--neon-cyan)); }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--neon-purple);
+            margin-top: 1rem;
+            text-shadow: 0 0 20px var(--neon-purple);
+            font-family: 'Orbitron', monospace;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #888;
+            margin-top: 2rem;
+            max-width: 600px;
+        }
+
+        .leaf-icon {
+            font-size: 4rem;
+            margin: 2rem 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title.green {
+            color: var(--neon-green);
+            text-shadow: 0 0 30px var(--neon-green);
+        }
+
+        .section-title.purple {
+            color: var(--neon-purple);
+            text-shadow: 0 0 30px var(--neon-purple);
+        }
+
+        .section-title.cyan {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 30px var(--neon-cyan);
+        }
+
+        .section-title.pink {
+            color: var(--neon-pink);
+            text-shadow: 0 0 30px var(--neon-pink);
+        }
+
+        .section-title.yellow {
+            color: var(--neon-yellow);
+            text-shadow: 0 0 30px var(--neon-yellow);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--neon-green);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.4);
+        }
+
+        .card.purple-border {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 20px rgba(191, 0, 255, 0.2);
+        }
+
+        .card.purple-border:hover {
+            box-shadow: 0 0 40px rgba(191, 0, 255, 0.4);
+        }
+
+        .card.cyan-border {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .card.cyan-border:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', monospace;
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card.purple-border h3 { color: var(--neon-purple); }
+        .card.cyan-border h3 { color: var(--neon-cyan); }
+
+        /* Status Grid */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .status-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+
+        .status-item.legal {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .status-item.illegal {
+            border-color: #ff3333;
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.3);
+        }
+
+        .status-item.warning {
+            border-color: var(--neon-yellow);
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.3);
+        }
+
+        .status-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-item h4 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-item.legal h4 { color: var(--neon-green); }
+        .status-item.illegal h4 { color: #ff3333; }
+        .status-item.warning h4 { color: var(--neon-yellow); }
+
+        .status-item p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--neon-green), var(--neon-purple), var(--neon-cyan));
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 1rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.35rem;
+            top: 0.5rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .timeline-item:nth-child(even)::before {
+            background: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+
+        .timeline-year {
+            font-family: 'Orbitron', monospace;
+            color: var(--neon-cyan);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .timeline-item h4 {
+            color: var(--neon-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item:nth-child(even) h4 {
+            color: var(--neon-purple);
+        }
+
+        .timeline-item p {
+            color: #ccc;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.1), rgba(0, 255, 255, 0.1));
+            border-left: 4px solid var(--neon-green);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .info-box.warning {
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 100, 0, 0.1));
+            border-left-color: var(--neon-yellow);
+        }
+
+        .info-box h4 {
+            color: var(--neon-green);
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box.warning h4 {
+            color: var(--neon-yellow);
+        }
+
+        /* Quotes */
+        blockquote {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--neon-cyan);
+            border-radius: 10px;
+            margin: 2rem 0;
+            background: rgba(0, 255, 255, 0.05);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #888;
+            font-style: normal;
+        }
+
+        /* Organization Cards */
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .org-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--neon-purple);
+            transition: all 0.3s;
+        }
+
+        .org-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(191, 0, 255, 0.4);
+        }
+
+        .org-header {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .org-header h3 {
+            font-family: 'Orbitron', monospace;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .org-body {
+            padding: 1.5rem;
+        }
+
+        .org-body p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .org-tag {
+            display: inline-block;
+            background: rgba(191, 0, 255, 0.2);
+            color: var(--neon-purple);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Shop List */
+        .shop-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .shop-item {
+            background: var(--card-bg);
+            border: 1px solid var(--neon-green);
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .shop-item:hover {
+            background: rgba(57, 255, 20, 0.1);
+            transform: translateX(5px);
+        }
+
+        .shop-icon {
+            font-size: 2rem;
+        }
+
+        .shop-item h4 {
+            color: var(--neon-green);
+            font-size: 1rem;
+        }
+
+        .shop-item p {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 2px solid var(--neon-green);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--neon-green);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.7rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -2.35rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glitch effect for headers */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 2s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+            -webkit-text-fill-color: var(--neon-cyan);
+        }
+
+        .glitch::after {
+            animation: glitch-2 3s infinite linear alternate-reverse;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+            -webkit-text-fill-color: var(--neon-pink);
+        }
+
+        @keyframes glitch-1 {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-3px); }
+            40% { transform: translateX(3px); }
+            60% { transform: translateX(-1px); }
+            80% { transform: translateX(2px); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes glitch-2 {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(3px); }
+            40% { transform: translateX(-3px); }
+            60% { transform: translateX(1px); }
+            80% { transform: translateX(-2px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-rain"></canvas>
+
+    <nav>
+        <ul>
+            <li><a href="#status">Legal Status</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#movement">Movement</a></li>
+            <li><a href="#growing">Home Growing</a></li>
+            <li><a href="#future">Future</a></li>
+            <li><a href="#cbd">CBD Shops</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="leaf-icon">🌿</div>
+        <h1 class="glitch" data-text="CANNAGEORGIA">CANNAGEORGIA</h1>
+        <p class="subtitle">საქართველო & კანაფი</p>
+        <p class="tagline">The Complete Guide to Cannabis Culture, History, and Law in the Republic of Georgia 🇬🇪</p>
+    </header>
+
+    <section id="status">
+        <h2 class="section-title green">⚖️ Current Legal Status</h2>
+
+        <blockquote>
+            "Consumption of marijuana is an action protected by the right to free personality. It can only harm the user's health, making that user themselves responsible for the outcome."
+            <cite>— Constitutional Court of Georgia, July 30, 2018</cite>
+        </blockquote>
+
+        <div class="status-grid fade-in">
+            <div class="status-item legal">
+                <div class="status-icon">✅</div>
+                <h4>Personal Consumption</h4>
+                <p>Legal since 2018 Constitutional Court ruling. You cannot be punished for using cannabis.</p>
+            </div>
+            <div class="status-item legal">
+                <div class="status-icon">✅</div>
+                <h4>Possession (Small Amounts)</h4>
+                <p>Small quantities for personal use are permitted without criminal penalty.</p>
+            </div>
+            <div class="status-item illegal">
+                <div class="status-icon">❌</div>
+                <h4>Cultivation</h4>
+                <p>Growing cannabis remains illegal with criminal penalties, even for personal use.</p>
+            </div>
+            <div class="status-item illegal">
+                <div class="status-icon">❌</div>
+                <h4>Sale & Distribution</h4>
+                <p>Selling or distributing cannabis carries severe criminal penalties.</p>
+            </div>
+            <div class="status-item illegal">
+                <div class="status-icon">❌</div>
+                <h4>Public Consumption</h4>
+                <p>Using cannabis in public spaces is prohibited under law.</p>
+            </div>
+            <div class="status-item illegal">
+                <div class="status-icon">❌</div>
+                <h4>Use Around Children</h4>
+                <p>Consumption in the presence of minors remains illegal.</p>
+            </div>
+        </div>
+
+        <div class="info-box warning" style="margin-top: 2rem;">
+            <h4>⚠️ June 2025 Update: Stricter Penalties</h4>
+            <p>Georgia's Parliament passed amendments tightening regulations on cannabis possession, cultivation, and distribution. While personal consumption remains decriminalized, larger quantities now carry increased criminal penalties. These changes affect the Criminal Code and Code of Administrative Offenses.</p>
+        </div>
+    </section>
+
+    <section id="history">
+        <h2 class="section-title purple">📜 Ancient History of Cannabis in Georgia</h2>
+
+        <div class="card purple-border fade-in">
+            <h3>🏺 The Scythian Connection (400 BCE)</h3>
+            <p>The Caucasus Mountains, which form Georgia's northern border, have been home to cannabis culture for millennia. In 2013, archaeologists discovered <strong>2,400-year-old golden vessels</strong> in a Scythian burial mound (kurgan) near Stavropol, just north of Georgia. These ornate gold artifacts—described as "golden bongs"—contained traces of both <strong>cannabis and opium residue</strong>.</p>
+            <br>
+            <p>The Scythians were nomadic warriors who roamed the Caucasus and Central Asian steppes. The ancient Greek historian <strong>Herodotus</strong> documented their cannabis rituals in the 5th century BCE, describing how they would throw cannabis seeds onto hot stones inside tents and inhale the vapors. The 2013 discovery confirmed his accounts and established the Caucasus region as one of the world's oldest centers of cannabis use.</p>
+        </div>
+
+        <div class="card purple-border fade-in">
+            <h3>🏔️ The Svan Cannabis Tradition</h3>
+            <p>High in Georgia's Greater Caucasus mountains lies <strong>Svaneti</strong>, home to the Svans—an ancient Georgian ethnic subgroup living in some of Europe's highest settlements. The Svans developed a unique cannabis culinary tradition that persisted for centuries.</p>
+            <br>
+            <p>Local legend speaks of <strong>cannabis-infused khachapuri</strong> (Georgia's famous cheese bread) and other traditional dishes incorporating the plant. The Svans used cannabis not just recreationally but as part of their food culture, integrating it into their mountain cuisine. Soviet prohibition in the 20th century uprooted much of this tradition, but cultural memory persists in the region.</p>
+            <br>
+            <p>Research has identified Georgia and the broader Caucasus as part of an ancient <strong>"crop domestication center"</strong>—one of the world's regions where humans first cultivated plants including hemp and cannabis.</p>
+        </div>
+
+        <div class="card purple-border fade-in">
+            <h3>🌍 Georgia: Crossroads of Cannabis Culture</h3>
+            <p>Georgia's position at the crossroads of Europe and Asia made it a natural hub for cannabis distribution throughout history. The ancient <strong>Silk Road</strong> passed through the Caucasus, carrying goods—and plants—between East and West.</p>
+            <br>
+            <p>Hemp was cultivated throughout the region for fiber, rope, and textiles for thousands of years. Cannabis seeds have been found in archaeological sites across the South Caucasus dating back to the Bronze Age. The word "canvas" itself derives from "cannabis," reflecting the plant's historical importance in textile production—an industry Georgia participated in for millennia.</p>
+        </div>
+    </section>
+
+    <section id="movement">
+        <h2 class="section-title cyan">✊ The Legalization Movement</h2>
+
+        <p style="text-align: center; margin-bottom: 3rem; color: #aaa; font-size: 1.1rem;">How activists, libertarians, and techno clubs changed Georgian drug policy forever</p>
+
+        <div class="timeline fade-in">
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <h4>"End the Drug War" & June 2nd Movement</h4>
+                <p>Organized protests emerge in Tbilisi demanding drug policy reform. Activists gather in central Tbilisi advocating for marijuana legalization, marking the beginning of a coordinated movement.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <h4>Girchi Party Founded</h4>
+                <p>The <strong>Girchi</strong> ("Pine Cone") party is founded by Zurab Japaridze and other libertarian activists who split from the United National Movement. Drug decriminalization becomes a core platform issue.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">December 2016</div>
+                <h4>White Noise Movement Protests</h4>
+                <p>The <strong>White Noise Movement</strong> holds demonstrations outside Parliament calling for decriminalization of all drugs. The movement gains attention through creative, action-oriented advocacy rather than traditional lobbying.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">New Year's Eve 2016</div>
+                <h4>Girchi's Bold Statement</h4>
+                <p>Girchi Party activists plant <strong>84 cannabis plants</strong> in pots at the party's Tbilisi headquarters as a political statement, directly challenging prohibition laws.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">November 2017</div>
+                <h4>Constitutional Court Victory</h4>
+                <p>Girchi member Givi Shanidze wins a petition before the Constitutional Court to lighten criminal liability for marijuana use. The court rules that existing laws impede personal freedom.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">May 2018</div>
+                <h4>Bassiani Raids & Mass Protests</h4>
+                <p>Police conduct "anti-drug" raids on <strong>Bassiani</strong> and Café Gallery, Tbilisi's famous techno clubs. Over 60 people arrested including White Noise and Girchi leaders. <strong>Thousands take to the streets</strong> in protest. The movement reaches critical mass.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">June 13, 2018</div>
+                <h4>Prime Minister Resigns</h4>
+                <p>Prime Minister <strong>Giorgi Kvirikashvili</strong> resigns following the May protests, signaling the political impact of the reform movement.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">July 30, 2018</div>
+                <h4>🎉 HISTORIC RULING</h4>
+                <p>The <strong>Constitutional Court of Georgia</strong> declares that punishment for cannabis consumption is unconstitutional. Georgia becomes the <strong>first former Soviet state</strong> to legalize cannabis for recreational use. Tbilisi celebrates.</p>
+            </div>
+        </div>
+
+        <h3 class="section-title cyan" style="margin-top: 4rem; font-size: 2rem;">🏛️ Key Organizations</h3>
+
+        <div class="org-grid fade-in">
+            <div class="org-card">
+                <div class="org-header">
+                    <h3>🌲 Girchi Party</h3>
+                </div>
+                <div class="org-body">
+                    <p>A right-libertarian political party founded in 2015. Name means "Pine Cone" in Georgian. Led the legal fight for decriminalization through Constitutional Court challenges.</p>
+                    <div>
+                        <span class="org-tag">Libertarian</span>
+                        <span class="org-tag">Political Party</span>
+                        <span class="org-tag">Legal Action</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-card">
+                <div class="org-header" style="background: linear-gradient(135deg, #333, #666);">
+                    <h3>📢 White Noise Movement</h3>
+                </div>
+                <div class="org-body">
+                    <p>Grassroots advocacy NGO fighting for full drug decriminalization in Georgia. Known for creative, action-based protests and close ties to Tbilisi's underground culture scene.</p>
+                    <div>
+                        <span class="org-tag">NGO</span>
+                        <span class="org-tag">Activism</span>
+                        <span class="org-tag">All Drugs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-card">
+                <div class="org-header" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                    <h3>🎵 Bassiani</h3>
+                </div>
+                <div class="org-body">
+                    <p>Tbilisi's world-famous techno club, housed in a Soviet-era swimming pool. More than a venue—a political frontier where music and activism intersect. Members overlap heavily with White Noise.</p>
+                    <div>
+                        <span class="org-tag">Nightclub</span>
+                        <span class="org-tag">Culture</span>
+                        <span class="org-tag">Resistance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="growing">
+        <h2 class="section-title yellow">🌱 Home Growing: Current Status</h2>
+
+        <div class="card" style="border-color: #ff3333; box-shadow: 0 0 20px rgba(255, 51, 51, 0.3);">
+            <h3 style="color: #ff3333;">❌ HOME CULTIVATION IS ILLEGAL</h3>
+            <p>Despite the 2018 decriminalization of <em>consumption</em>, the Constitutional Court ruling explicitly <strong>kept in place penalties for cultivation</strong>. This means:</p>
+            <br>
+            <ul style="margin-left: 2rem; color: #ccc;">
+                <li>Growing any amount of cannabis at home is <strong>a criminal offense</strong></li>
+                <li>There is <strong>no legal number</strong> of plants allowed for personal use</li>
+                <li>Penalties include fines and imprisonment</li>
+                <li>Indoor, outdoor, and greenhouse growing are all prohibited</li>
+                <li>Even growing hemp without proper licensing is illegal</li>
+            </ul>
+        </div>
+
+        <div class="info-box warning">
+            <h4>⚠️ The Paradox</h4>
+            <p>Georgian law creates an unusual situation: you can <em>legally consume</em> cannabis, but you cannot <em>legally obtain</em> it. Growing, buying, and selling all remain criminal activities. This forces consumers to rely on black market sources despite legal consumption rights.</p>
+        </div>
+
+        <div class="card fade-in">
+            <h3>📊 Penalties for Cultivation</h3>
+            <p>Under Georgian law, cultivation of cannabis can result in:</p>
+            <br>
+            <ul style="margin-left: 2rem; color: #ccc;">
+                <li><strong>Administrative fines</strong> for small-scale first offenses</li>
+                <li><strong>Criminal prosecution</strong> for larger amounts or repeat offenses</li>
+                <li><strong>Imprisonment up to 12 years</strong> for large-scale cultivation</li>
+                <li><strong>Asset seizure</strong> of property used for growing operations</li>
+            </ul>
+            <br>
+            <p style="color: var(--neon-yellow);">The June 2025 amendments have <strong>increased these penalties</strong>, making cultivation an even greater legal risk.</p>
+        </div>
+    </section>
+
+    <section id="future">
+        <h2 class="section-title pink">🔮 The Future: Medical & Full Legalization</h2>
+
+        <div class="card cyan-border fade-in">
+            <h3>💊 Medical Marijuana: The Next Frontier</h3>
+            <p>Unlike many Western countries, Georgia jumped directly to recreational decriminalization without first establishing a medical cannabis program. Activists and reformers are now pushing for:</p>
+            <br>
+            <ul style="margin-left: 2rem; color: #ccc;">
+                <li>A <strong>formal medical cannabis framework</strong> with patient registration</li>
+                <li><strong>Licensed dispensaries</strong> providing regulated, quality-controlled products</li>
+                <li><strong>Prescription access</strong> for patients with qualifying conditions</li>
+                <li><strong>Research programs</strong> to study cannabis therapeutics</li>
+            </ul>
+            <br>
+            <p>Currently, no medical marijuana program exists in Georgia. Patients seeking cannabis for medical purposes must rely on the same unregulated market as recreational users.</p>
+        </div>
+
+        <div class="card cyan-border fade-in">
+            <h3>🏭 Vision: A Thriving Cannabis Industry</h3>
+            <p>Advocates envision Georgia becoming a <strong>cannabis tourism and production hub</strong> for the region. The dream includes:</p>
+            <br>
+            <ul style="margin-left: 2rem; color: #ccc;">
+                <li><strong>Licensed cultivation</strong> for both domestic use and export</li>
+                <li><strong>Cannabis cafés and lounges</strong> in Tbilisi and tourist areas</li>
+                <li><strong>Hemp industry development</strong> for textiles, construction, and food</li>
+                <li><strong>Cannabis tourism</strong> packages attracting visitors from restrictive countries</li>
+                <li><strong>Research and development</strong> facilities for cannabinoid science</li>
+                <li><strong>Job creation</strong> in cultivation, processing, retail, and tourism</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4>🌐 Regional Context</h4>
+            <p>Georgia's 2018 ruling made it the most progressive country in the former Soviet sphere regarding cannabis. However, the government has shown no indication of moving toward full commercial legalization. The June 2025 tightening of penalties suggests a conservative backlash rather than continued liberalization.</p>
+        </div>
+
+        <div class="card fade-in">
+            <h3>⚡ What Needs to Change</h3>
+            <p>For Georgia to develop a legal cannabis industry, lawmakers would need to:</p>
+            <br>
+            <ol style="margin-left: 2rem; color: #ccc;">
+                <li><strong>Legalize cultivation</strong> for licensed producers</li>
+                <li><strong>Create a regulatory framework</strong> for sales and distribution</li>
+                <li><strong>Establish quality and safety standards</strong> for products</li>
+                <li><strong>Implement taxation</strong> to generate government revenue</li>
+                <li><strong>Allow home growing</strong> for personal use within limits</li>
+                <li><strong>Decriminalize or legalize</strong> sales between adults</li>
+            </ol>
+            <br>
+            <p>Girchi, White Noise, and allied organizations continue advocating for these changes, but political momentum has stalled since 2018.</p>
+        </div>
+    </section>
+
+    <section id="cbd">
+        <h2 class="section-title green">🛒 CBD & Hemp Products</h2>
+
+        <div class="info-box">
+            <h4>✅ CBD is Legal in Georgia</h4>
+            <p>CBD products containing <strong>less than 0.3% THC</strong> are legal to buy and sell in Georgia. A growing number of shops in Tbilisi offer CBD oils, flowers, edibles, and topicals.</p>
+        </div>
+
+        <h3 style="color: var(--neon-green); margin: 2rem 0; font-family: 'Orbitron', monospace;">📍 CBD Shops in Tbilisi</h3>
+
+        <div class="shop-list fade-in">
+            <div class="shop-item">
+                <div class="shop-icon">🦍</div>
+                <div>
+                    <h4>Gorilla Mafia CBD</h4>
+                    <p>CBD flowers, oils, and accessories</p>
+                </div>
+            </div>
+            <div class="shop-item">
+                <div class="shop-icon">🧪</div>
+                <div>
+                    <h4>Greenlab Georgia</h4>
+                    <p>Premium CBD products and extracts</p>
+                </div>
+            </div>
+            <div class="shop-item">
+                <div class="shop-icon">🌱</div>
+                <div>
+                    <h4>MYSEED</h4>
+                    <p>Seeds and CBD products</p>
+                </div>
+            </div>
+            <div class="shop-item">
+                <div class="shop-icon">🍃</div>
+                <div>
+                    <h4>Hemp House Tbilisi</h4>
+                    <p>Full spectrum CBD oils</p>
+                </div>
+            </div>
+            <div class="shop-item">
+                <div class="shop-icon">💨</div>
+                <div>
+                    <h4>CBD Georgia</h4>
+                    <p>Vapes, edibles, and tinctures</p>
+                </div>
+            </div>
+            <div class="shop-item">
+                <div class="shop-icon">🏪</div>
+                <div>
+                    <h4>Various Pharmacies</h4>
+                    <p>CBD oils available at select locations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card fade-in" style="margin-top: 2rem;">
+            <h3>🔬 CBG & CBN Products</h3>
+            <p>While CBD is widely available, <strong>CBG (cannabigerol)</strong> and <strong>CBN (cannabinol)</strong> products remain <strong>rare and difficult to find</strong> in Georgia. The market is still developing, and most shops focus primarily on CBD offerings. Those seeking CBG or CBN may need to order online from international retailers.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p style="font-family: 'Orbitron', monospace; color: var(--neon-green); margin-bottom: 1rem;">CANNAGEORGIA 🌿 2026</p>
+        <p>Information provided for educational purposes. Laws change—verify current regulations before any cannabis-related activities.</p>
+        <br>
+        <div class="footer-links">
+            <a href="#status">Legal Status</a>
+            <a href="#history">History</a>
+            <a href="#movement">Movement</a>
+            <a href="#growing">Home Growing</a>
+            <a href="#future">Future</a>
+            <a href="#cbd">CBD Shops</a>
+        </div>
+        <br>
+        <p style="color: #444;">🇬🇪 გაუმარჯოს საქართველოს</p>
+    </footer>
+
+    <script>
+        // Matrix Rain Effect with Weed Slang
+        const canvas = document.getElementById('matrix-rain');
+        const ctx = canvas.getContext('2d');
+
+        // Weed slang words for the matrix rain
+        const weedSlang = [
+            '420', 'DANK', 'KUSH', 'GANJA', 'HERB', 'BUD', 'CHRONIC', 'DOPE',
+            'BLAZE', 'HASH', 'WEED', 'POT', 'MARY JANE', 'GREEN', 'GRASS',
+            'REEFER', 'JOINT', 'SPLIFF', 'BLUNT', 'BONG', 'PIPE', 'TOKE',
+            'PUFF', 'HIT', 'SESS', 'SESH', 'STONED', 'HIGH', 'LIT',
+            'FIRE', 'GAS', 'LOUD', 'STICKY', 'ICKY', 'SKUNK', 'HAZE',
+            'OG', 'SATIVA', 'INDICA', 'HYBRID', 'THC', 'CBD', 'TERPS',
+            'NUG', 'COLA', 'FLOWER', 'TREE', 'LEAF', '🌿', '💨', '🔥',
+            'GIRCHI', 'TBILISI', 'საქართველო', 'კანაფი', 'BASSIANI', 'FREE',
+            'LEGAL', 'PEACE', 'LOVE', 'CHILL', 'VIBE', 'MELLOW', 'ZEN'
+        ];
+
+        let width, height, columns, drops;
+
+        function initMatrix() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            const fontSize = 14;
+            columns = Math.floor(width / fontSize);
+            drops = Array(columns).fill(1);
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.font = '14px Orbitron, monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const word = weedSlang[Math.floor(Math.random() * weedSlang.length)];
+
+                // Random green shades
+                const greenShade = Math.floor(Math.random() * 155) + 100;
+                ctx.fillStyle = `rgb(57, ${greenShade}, 20)`;
+
+                // Occasionally make some purple or cyan
+                if (Math.random() > 0.9) {
+                    ctx.fillStyle = '#bf00ff';
+                } else if (Math.random() > 0.95) {
+                    ctx.fillStyle = '#00ffff';
+                }
+
+                const x = i * 14;
+                const y = drops[i] * 14;
+
+                // Draw each character of the word
+                for (let j = 0; j < word.length && j < 8; j++) {
+                    ctx.fillText(word[j], x, y + j * 14);
+                }
+
+                if (y > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        initMatrix();
+        window.addEventListener('resize', initMatrix);
+        setInterval(drawMatrix, 50);
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
